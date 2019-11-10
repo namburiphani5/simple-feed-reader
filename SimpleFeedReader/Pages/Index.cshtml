@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Home page";
 }
-<h2>Simple Feed Reader</h2>
+<h2>Simple Feed Reader - V3</h2>
 <hr />
 <div class="row">
     <div>
@@ -19,7 +19,7 @@
             </div>
         </form>
     </div>
-    
+
     @if (!string.IsNullOrEmpty(Model.ErrorText))
     {
         <div>
@@ -29,26 +29,26 @@
 
     @if (Model.NewsItems?.Count > 0)
     {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Published</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.NewsItems)
-            {
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        <a href="@item.Uri" target="_blank">@item.Title</a>
-                    </td>
-                    <td>
-                        @item.Published.ToString("MMM dd, yyyy HH:mm:ss")
-                    </td>
+                    <th>Title</th>
+                    <th>Published</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.NewsItems)
+                {
+                    <tr>
+                        <td>
+                            <a href="@item.Uri" target="_blank">@item.Title</a>
+                        </td>
+                        <td>
+                            @item.Published.ToString("MMM dd, yyyy HH:mm:ss")
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     }
 </div>
